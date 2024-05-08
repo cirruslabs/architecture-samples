@@ -28,6 +28,19 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+buildCache {
+    val httpCacheHost = System.getenv("CIRRUS_HTTP_CACHE_HOST")
+    if (httpCacheHost != null) {
+        local {
+            isEnabled = false
+        }
+        remote<HttpBuildCache> {
+            url = uri("http://$httpCacheHost/")
+            isEnabled = true
+            isPush = System.getenv("GITHUB_REF_NAME") == "main"
+        }
+    }
+}
 
 include(":app")
 include(":shared-test")

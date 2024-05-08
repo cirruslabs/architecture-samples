@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest # Needed for emulators
+    runs-on: ghcr.io/cirruslabs/ubuntu-runner-amd64:22.04-md
     timeout-minutes: 45
 
     steps:
@@ -27,7 +27,7 @@ jobs:
         with:
           java-version: 11
 
-      - uses: actions/cache@v2
+      - uses: cirruslabs/cache@v2
         with:
           path: |
             ~/.gradle/caches/modules-*
