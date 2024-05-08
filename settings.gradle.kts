@@ -30,6 +30,7 @@ dependencyResolutionManagement {
 }
 buildCache {
     val httpCacheHost = System.getenv("CIRRUS_HTTP_CACHE_HOST")
+    println("Using HTTP cache: $httpCacheHost")
     if (httpCacheHost != null) {
         local {
             isEnabled = false
