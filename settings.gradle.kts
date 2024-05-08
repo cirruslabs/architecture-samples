@@ -32,9 +32,6 @@ buildCache {
     val httpCacheHost = System.getenv("CIRRUS_HTTP_CACHE_HOST")
     println("Using HTTP cache: $httpCacheHost")
     if (httpCacheHost != null) {
-        local {
-            isEnabled = false
-        }
         remote<HttpBuildCache> {
             url = uri("http://$httpCacheHost/")
             isEnabled = true
