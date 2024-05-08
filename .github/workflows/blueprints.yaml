@@ -27,7 +27,7 @@ jobs:
         with:
           java-version: 11
 
-      - uses: cirruslabs/cache@v2
+      - uses: cirruslabs/cache@v4
         with:
           path: |
             ~/.gradle/caches/modules-*
